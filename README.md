@@ -31,7 +31,7 @@ Code forked from https://github.com/danilop/SNS2IFTTT/
 6. Create an Applet
 7. Choose Webhooks ('this')
 8. Select Receive a Web Request
-9. Write the Event Name exacly as is the `iftttMakerEventName` variable of the Lambda function (step 3.4 on AWS)
+9. Write the Event Name exacly as is the `iftttMakerEventName` variable of the Lambda function (step 3.3 on AWS)
 10. Select Create Trigger
 11. `Value1` contains the Subject of the SNS message
 12. `Value2` contains the Message body of the SNS message
