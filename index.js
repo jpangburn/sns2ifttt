@@ -1,7 +1,7 @@
 console.log('Loading function');
 
-var https = require('https');
-var querystring = require("querystring");
+import https from 'https';
+import querystring from 'querystring';
 
 // IFTTT Maker Webhooks configuration, see https://ifttt.com/maker_webhooks
 var iftttMakerEventName = process.env.iftttMakerEventName;
@@ -13,7 +13,7 @@ var iftttMakerUrl =
     + '/with/key/'
     + iftttMakerSecretKey;
 
-exports.handler = function(event, context) {
+export function handler(event, context) {
     var message = event.Records[0].Sns.Message;
     var subject   = event.Records[0].Sns.Subject;
     console.log('From SNS subject: ', subject)
@@ -25,6 +25,8 @@ exports.handler = function(event, context) {
 
     // The output is send as 'value1' to IFTTT Maker
     var params = querystring.stringify({value1: subject, value2: message});
+    
+    console.log('invoking URL: ', encodeURI(iftttMakerUrl) + '?' + params);
 
     https.get(encodeURI(iftttMakerUrl) + '?' + params, function(res) {
         console.log("Got response: " + res.statusCode);

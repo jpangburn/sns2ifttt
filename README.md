@@ -2,7 +2,7 @@
 
 An [AWS Lambda](https://aws.amazon.com/lambda/) function to push [Amazon SNS](https://aws.amazon.com/sns/) notifications to [IFTTT](https://ifttt.com) via the [Maker Webhooks](https://ifttt.com/maker_webhooks) service.
 
-Code forked from https://github.com/danilop/SNS2IFTTT/
+Code forked from https://github.com/danilop/SNS2IFTTT/.  Updated for Node.js 18.x runtimes.
 
 ## Installation
 
@@ -16,8 +16,8 @@ Code forked from https://github.com/danilop/SNS2IFTTT/
 3. Create a new AWS Lambda function, e.g. `sns-to-ifttt`
    1. Use Node.js as runtime
    2. Paste the code inline from the `index.js` file included in this repository
-   3. Set the environment variable `iftttMakerEventName` to be the name of your IFTTT webhook `event_name`
-   4. Set the environment variable `iftttMakeSecretKey` to be your maker `key`
+   3. Set the environment variable `iftttMakerEventName` to be the name of your IFTTT webhook `event_name` (environment variables are set in the Configuration tab in the web interface)
+   4. Set the environment variable `iftttMakerSecretKey` to be your maker `key`
    5. Leave the default handler
    6. Use a basic execution role
    7. Leave the default memory (128MB) and timeout (3s)
